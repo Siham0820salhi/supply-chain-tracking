@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  backend:
+    build: ./2_backend
+    ports:
+      - "5000:5000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway" # Hadi mhma bach ychouf Ganache
+    
+  frontend:
+    build: ./3_frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
