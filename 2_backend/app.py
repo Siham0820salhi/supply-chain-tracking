@@ -13,7 +13,7 @@ w3 = Web3(Web3.HTTPProvider("http://host.docker.internal:7545"))
 # L'ABI howa l'carte dyal l'contract. Hna drt lik mital sghir dyal function getProductHistory:
 CONTRACT_ABI = json.loads('[{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"}],"name":"getProductHistory","outputs":[{"components":[{"internalType":"string","name":"description","type":"string"},{"internalType":"address","name":"actor","type":"address"},{"internalType":"uint256","name":"timestamp","type":"uint256"}],"internalType":"struct SupplyChain.Step[]","name":"","type":"tuple[]"}],"stateMutability":"view","type":"function"}]')
 
-CONTRACT_ADDRESS = "0x6021aaa32E1e8112eD721E4626d976dF1dB3e8de" # Ex: 0x123...
+CONTRACT_ADDRESS = "0x7AFed960D340e82754E90d13eFe7a75963390214" # Ex: 0x123..
 contract = w3.eth.contract(address=CONTRACT_ADDRESS, abi=CONTRACT_ABI)
 
 @app.route('/api/history/<int:product_id>', methods=['GET'])

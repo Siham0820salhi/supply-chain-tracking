@@ -5,11 +5,16 @@ services:
     ports:
       - "5000:5000"
     extra_hosts:
-      - "host.docker.internal:host-gateway" # Hadi mhma bach ychouf Ganache
-    
+      - "host.docker.internal:host-gateway"
+
   frontend:
     build: ./3_frontend
     ports:
       - "3000:3000"
+    environment:
+      - HOST=0.0.0.0
+      - WATCHPACK_POLLING=true
+      - WDS_SOCKET_PORT=0        # <--- ZIDI HAD LSTAR HNA
     depends_on:
       - backend
+ 
